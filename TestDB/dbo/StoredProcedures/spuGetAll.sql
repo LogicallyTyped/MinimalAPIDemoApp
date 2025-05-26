@@ -1,0 +1,6 @@
+﻿CREATE PROCEDURE [dbo].[spuGetAll]
+AS
+BEGIN
+	SELECT *
+	FROM dbo.[User]
+END
