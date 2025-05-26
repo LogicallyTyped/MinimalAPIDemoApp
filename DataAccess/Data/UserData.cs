@@ -2,6 +2,7 @@
 using DataAccess.Models;
 
 namespace DataAccess.Data;
+
 public class UserData : IUserData
 {
     private readonly ISqlDataAccess _db;
