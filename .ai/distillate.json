@@ -1,0 +1,141 @@
+{
+  "schema_version": "1.0.0",
+  "repo_root": "C:\\source\\github.com\\LogicallyTyped\\MinimalAPIDemoApp",
+  "distilled_from_sha": "1551ac32a1a7c0f675f6d14bf3f94d4ba046a692",
+  "verification": {
+    "verified_sha": "1551ac32a1a7c0f675f6d14bf3f94d4ba046a692",
+    "verified_at": "2026-08-16T18:34:13Z",
+    "verified_by": "claude-sonnet (TASK-5.2 supervised full run)"
+  },
+  "deterministic": {
+    "file_tree": [
+      ".ai",
+      ".editorconfig",
+      ".gitattributes",
+      ".gitignore",
+      "DataAccess",
+      "MinimalAPIDemo",
+      "MinimalAPIDemoApp.sln",
+      "TestDB",
+      "UserDB"
+    ],
+    "dependencies": [
+      {
+        "name": "Dapper",
+        "version": "2.1.66",
+        "kind": "runtime"
+      },
+      {
+        "name": "Microsoft.Data.SqlClient",
+        "version": "6.0.1",
+        "kind": "runtime"
+      },
+      {
+        "name": "Microsoft.Extensions.Configuration.Abstractions",
+        "version": "9.0.3",
+        "kind": "runtime"
+      },
+      {
+        "name": "System.Data.SqlClient",
+        "version": "4.9.0",
+        "kind": "runtime"
+      },
+      {
+        "name": "Microsoft.AspNetCore.OpenApi",
+        "version": "9.0.3",
+        "kind": "runtime"
+      },
+      {
+        "name": "Scalar.AspNetCore",
+        "version": "2.1.1",
+        "kind": "runtime"
+      }
+    ],
+    "build_test_run": [],
+    "entrypoints": [
+      {
+        "type": "cli",
+        "path": "DataAccess/DataAccess.csproj"
+      },
+      {
+        "type": "http",
+        "path": "MinimalAPIDemo/Program.cs"
+      }
+    ],
+    "config_keys": [
+      {
+        "name": "AllowedHosts",
+        "sensitive": false
+      },
+      {
+        "name": "ConnectionStrings:Default",
+        "sensitive": true
+      },
+      {
+        "name": "Logging:LogLevel:Default",
+        "sensitive": false
+      },
+      {
+        "name": "Logging:LogLevel:Microsoft.AspNetCore",
+        "sensitive": false
+      }
+    ],
+    "scheduled_tasks": [],
+    "services": [],
+    "routes": [
+      {
+        "method": "GET",
+        "path": "/Users"
+      },
+      {
+        "method": "POST",
+        "path": "/Users"
+      },
+      {
+        "method": "PUT",
+        "path": "/Users"
+      },
+      {
+        "method": "DELETE",
+        "path": "/Users/{id}"
+      },
+      {
+        "method": "GET",
+        "path": "/Users/{id}"
+      }
+    ],
+    "docs_index": [
+      ".ai/CONTEXT.md"
+    ],
+    "ado_org": null,
+    "employer": null,
+    "team": null
+  },
+  "interpretive": {
+    "purpose": "A minimal API application for managing user data using stored procedures.",
+    "consumers": [
+      "Web clients consuming RESTful endpoints"
+    ],
+    "components": [
+      {
+        "name": "MinimalAPIDemo",
+        "responsibility": "Defines HTTP routes and handles requests."
+      },
+      {
+        "name": "DataAccess",
+        "responsibility": "Handles database interactions using Dapper and stored procedures."
+      }
+    ],
+    "data_flow_summary": "HTTP requests are routed to appropriate methods in MinimalAPIDemo, which interact with UserData through IUserData interface. UserData uses SqlDataAccess to execute stored procedures on the database.",
+    "integration_points": [
+      {
+        "name": "Database",
+        "description": "Interacts via stored procedures for CRUD operations."
+      }
+    ],
+    "operational_notes": [
+      "Ensure ConnectionStrings:Default is correctly configured in appsettings.json.",
+      "Stored procedure names are hardcoded in DataAccess/Data/UserData.cs (dbo.spuGetAll, dbo.spuGet, dbo.spuInsert, dbo.spuUpdate, dbo.spuDelete) and must match the procedures defined in the SQL project (TestDB/UserDB); SqlDataAccess.cs itself is generic and takes the procedure name as a parameter."
+    ]
+  }
+}
