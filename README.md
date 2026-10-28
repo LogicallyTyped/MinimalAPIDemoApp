@@ -34,8 +34,8 @@ No automated tests exist in this repo.
 - HTTP routes (defined in `MinimalAPIDemo/Api.cs`): `GET /Users`, `GET /Users/{id}`,
   `POST /Users`, `PUT /Users`, `DELETE /Users/{id}`.
 - `DataAccess/DataAccess.csproj` is a class library referenced by `MinimalAPIDemo` — it
-  is not a separate runnable entrypoint (see `.ai/findings.md` for a distillation-tooling
-  note about this).
+  is not a separate runnable entrypoint (the repo's doc-distillation tooling wrongly
+  lists it as one; a known distiller bug).
 
 ## Configuration
 
@@ -67,11 +67,9 @@ wherever `dotnet run` (or a published build) is executed against a configured da
 
 ## Deeper docs
 
-- `docs/architecture.md` — component diagram, data flow, and operational gotchas.
+- `.ai/architecture.md` — component diagram, data flow, and operational gotchas.
 - `.ai/CONTEXT.md` — standards precedence declaration for this repo.
 - `.ai/distillate.json` — machine-readable summary this documentation was rendered from.
-- `.ai/findings.md` — distillation-tooling issues found while verifying this repo.
-
 ---
 schema_version: 1.0.0
 distilled_from_sha: 1551ac32a1a7c0f675f6d14bf3f94d4ba046a692
